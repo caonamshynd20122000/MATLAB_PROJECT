@@ -1,0 +1,16 @@
+function kq = ppXapXiTien(xa, ya, giatrix)
+    h = abs(xa(2) - xa(1));
+    kq = "Không thể xấp xỉ tại " + num2str(giatrix);
+
+    % Kiểm tra nếu giatrix nằm ngoài mảng xa
+    if giatrix < xa(1) || giatrix >= xa(end)
+        return;
+    end
+
+    for i = 1 : length(xa) - 1
+        if giatrix >= xa(i) && giatrix <= xa(i+1)
+            kq = (ya(i+1) - ya(i)) / h;
+            break; % Dừng vòng lặp nếu đã tìm thấy giá trị xấp xỉ
+        end
+    end
+end
